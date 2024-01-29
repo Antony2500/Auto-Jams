@@ -1,0 +1,2 @@
+18 19 * * * /usr/bin/python3 /app/main.py > /app/cron_output.log 2>&1
+

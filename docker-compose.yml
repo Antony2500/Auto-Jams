@@ -1,0 +1,26 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    volumes:
+      - data:/var/lib/postgresql/data
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 252525
+      POSTGRES_DB: postgres
+
+    restart: always
+
+  app:
+    build: .
+    container_name: auto_ria2
+    env_file:
+      - .env
+    volumes:
+      - ./dumps:/app/dumps
+    ports:
+      - "8008:8000"
+
+volumes:
+  data:
